@@ -16,9 +16,6 @@ namespace Vueling.Presentation.WinSite
 {
     public partial class StartingForm : Form
     {
-
-
-
         Form childform;
 
         public StartingForm()
@@ -56,7 +53,11 @@ namespace Vueling.Presentation.WinSite
             Environment.SetEnvironmentVariable("Student_Languaje", "ca-ES", EnvironmentVariableTarget.User);
             LanguageUtils.SetLanguaje();
 
-            this.Update();
+            foreach (Control con in this.Controls)
+            {
+                con.Refresh();
+                con.Update();
+            }
         }
 
         private void anglèsToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -64,7 +65,11 @@ namespace Vueling.Presentation.WinSite
             Environment.SetEnvironmentVariable("Student_Languaje", "en-001", EnvironmentVariableTarget.User);
             LanguageUtils.SetLanguaje();
 
-            this.Update();
+            foreach (Control con in this.Controls)
+            {
+                con.Refresh();
+                con.Update();
+            }
         }
 
         private void castellàToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -72,7 +77,11 @@ namespace Vueling.Presentation.WinSite
             Environment.SetEnvironmentVariable("Student_Languaje", "es-ES", EnvironmentVariableTarget.User);
             LanguageUtils.SetLanguaje();
 
-            this.Update();
+            foreach (Control con in this.Controls)
+            {
+                con.Refresh();
+                con.Update();
+            }
         }
         #endregion
 
@@ -96,6 +105,11 @@ namespace Vueling.Presentation.WinSite
         private void sqlToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FileUtils.SetFormat(Config.sql);
+            this.ChangeFormatLabelStudentForm();
+        }
+        private void clrToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FileUtils.SetFormat(Config.clr);
             this.ChangeFormatLabelStudentForm();
         }
         #endregion

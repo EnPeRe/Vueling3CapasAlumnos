@@ -20,9 +20,9 @@ namespace Vueling.DataAccess.Dao
     {
         private readonly Logger logger = new Logger();
 
-        //private readonly string conectionstring = "s"; //sql connexion string llegir de variable d'entorn codificada
-        private readonly string conectionstring = "Data Source = AM-BCN-POR-378; Initial Catalog = StudentDB;" +
-            "Trusted_Connection=yes; Integrated Security = SSPI";
+        // private readonly string conectionstring = "s"; //sql connexion string llegir de variable d'entorn codificada
+        private readonly string conectionstring = "Data Source = AM-BCN-POR-378; Initial Catalog = StudentDB; Trusted_Connection=yes; Integrated Security = SSPI";
+        // private readonly string conectionstring = Environment.GetEnvironmentVariable("connectionStringStudentDB", EnvironmentVariableTarget.User);
 
         private SqlCommand cmd;
         private SqlConnection conn;
@@ -34,17 +34,15 @@ namespace Vueling.DataAccess.Dao
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 
-            string sql = "INSERT INTO dbo.Students (Nombre, Apellidos, Dni, Edad, FechaNacimiento, HoraRegistro, Student_Guid)" +
-                " VALUES (@Nombre, @Apellidos, @Dni, @Edad, @FechaNacimiento, @HoraRegistro, @Guid)";
-
             try
             {
                 using (conn = new SqlConnection(conectionstring))
                 {
-                    using (cmd = new SqlCommand(sql, conn))
+                    using (cmd = new SqlCommand())
                     {
-                        conn.Open();
-
+                        cmd.Connection = conn;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "InsertStudent";
                         cmd.Parameters.AddWithValue("@Guid", student.Student_Guid.ToString());
                         cmd.Parameters.AddWithValue("@Nombre", student.Nombre);
                         cmd.Parameters.AddWithValue("@Apellidos", student.Apellido);
@@ -52,6 +50,8 @@ namespace Vueling.DataAccess.Dao
                         cmd.Parameters.AddWithValue("@Dni", student.Dni);
                         cmd.Parameters.AddWithValue("@FechaNacimiento", student.FechaNacimiento);
                         cmd.Parameters.AddWithValue("@HoraRegistro", student.HoraRegistro);
+
+                        conn.Open();
 
                         //cmd.Prepare();
 
@@ -78,17 +78,18 @@ namespace Vueling.DataAccess.Dao
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 
-            string sql = "SELECT * FROM dbo.Students where Student_Guid = @Guid";
             Student st = new Student();
 
             try
             {
-                using (cmd = new SqlCommand(sql, conn))
+                using (cmd = new SqlCommand())
                 {
-                    conn.Open();
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "SelectStudentbyGuid";
+                    cmd.Parameters.AddWithValue("@Guid", studentguid);
                     using (SqlDataReader rdr = cmd.ExecuteReader())
                     {
-                        cmd.Parameters.AddWithValue("@Guid", studentguid);
                         if (rdr.Read())
                         {
                             st.IdAlumno = (int)rdr["Id"];
@@ -114,22 +115,21 @@ namespace Vueling.DataAccess.Dao
             return st;
         }
 
-        [SqlProcedure()]
-        public void ReadAll(out List<Student> liststudents)
+        public List<Student> ReadAll()
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 
-            // public static void PriceSum(out SqlInt32 value)
-
             liststudents = new List<Student>();
-            string sql = "SELECT * FROM dbo.Students";
 
             try
             {
                 using (conn = new SqlConnection(conectionstring))
                 {
-                    using (cmd = new SqlCommand(sql, conn))
+                    using (cmd = new SqlCommand())
                     {
+                        cmd.Connection = conn;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "SelectAllStudent";
                         conn.Open();
                         using (SqlDataReader rdr = cmd.ExecuteReader())
                         {
@@ -158,6 +158,8 @@ namespace Vueling.DataAccess.Dao
             }
 
             logger.Debug(ResourceLogger.EndMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+            return liststudents;
         }
 
         public int DeleteById(int id)

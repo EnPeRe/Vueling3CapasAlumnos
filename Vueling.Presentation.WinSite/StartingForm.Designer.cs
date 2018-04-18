@@ -43,6 +43,7 @@
             this.catalàToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.anglèsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.castellàToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.clrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,7 +89,8 @@
             this.txtToolStripMenuItem1,
             this.jsonToolStripMenuItem1,
             this.xmlToolStripMenuItem1,
-            this.sqlToolStripMenuItem1});
+            this.sqlToolStripMenuItem1,
+            this.clrToolStripMenuItem});
             this.formatDeLarxiuToolStripMenuItem.Name = "formatDeLarxiuToolStripMenuItem";
             resources.ApplyResources(this.formatDeLarxiuToolStripMenuItem, "formatDeLarxiuToolStripMenuItem");
             // 
@@ -147,6 +149,12 @@
             resources.ApplyResources(this.castellàToolStripMenuItem1, "castellàToolStripMenuItem1");
             this.castellàToolStripMenuItem1.Click += new System.EventHandler(this.castellàToolStripMenuItem1_Click);
             // 
+            // clrToolStripMenuItem
+            // 
+            this.clrToolStripMenuItem.Name = "clrToolStripMenuItem";
+            resources.ApplyResources(this.clrToolStripMenuItem, "clrToolStripMenuItem");
+            this.clrToolStripMenuItem.Click += new System.EventHandler(this.clrToolStripMenuItem_Click);
+            // 
             // StartingForm
             // 
             resources.ApplyResources(this, "$this");
@@ -178,5 +186,6 @@
         private System.Windows.Forms.ToolStripMenuItem catalàToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem anglèsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem castellàToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem clrToolStripMenuItem;
     }
 }

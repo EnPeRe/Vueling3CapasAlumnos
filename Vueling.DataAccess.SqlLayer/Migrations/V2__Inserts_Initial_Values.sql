@@ -7,5 +7,4 @@ VALUES
    ( 3, N'Francisco Garcia', N'Salamanca', N'fjose@adventure-works.com'),
    ( 4, N'Joan Vilanova', N'Barcelona', N'jvilanova@adventure-works.com')
 GO
-
 */

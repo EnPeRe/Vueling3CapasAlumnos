@@ -81,12 +81,11 @@ namespace Vueling.DataAccess.Dao
 
             try
             {
-                using (cmd = new SqlCommand(sql, conn))
+                using (SqlCommand comand = new SqlCommand(sql, conn))
                 {
-                    conn.Open();
-                    using (SqlDataReader rdr = cmd.ExecuteReader())
+                    cmd.Parameters.AddWithValue("@Guid", studentguid.ToString());
+                    using (SqlDataReader rdr = comand.ExecuteReader())
                     {
-                        cmd.Parameters.AddWithValue("@Guid", studentguid);
                         if (rdr.Read())
                         {
                             st.IdAlumno = (int)rdr["Id"];

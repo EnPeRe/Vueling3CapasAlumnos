@@ -50,6 +50,8 @@ namespace Vueling.Business.Logic.Logics
                     return sinxml.LoadAll();
                 case Config.sql:
                     return (formfact.CreateStudentFormat(con)).ReadAll();
+                case Config.clr:
+                    return (formfact.CreateStudentFormat(con)).ReadAll();
                 default:
                     return (formfact.CreateStudentFormat(con)).ReadAll();
             }

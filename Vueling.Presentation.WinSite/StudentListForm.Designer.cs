@@ -43,6 +43,7 @@
             this.radioButtonGuid = new System.Windows.Forms.RadioButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.buttonReadSql = new System.Windows.Forms.Button();
+            this.buttonReadClr = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGVStudents)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +54,7 @@
             this.dGVStudents.Name = "dGVStudents";
             this.dGVStudents.Size = new System.Drawing.Size(414, 147);
             this.dGVStudents.TabIndex = 0;
+            this.dGVStudents.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGVStudents_CellDoubleClick);
             // 
             // buttonReadTxt
             // 
@@ -201,11 +203,22 @@
             this.buttonReadSql.UseVisualStyleBackColor = true;
             this.buttonReadSql.Click += new System.EventHandler(this.buttonReadSql_Click);
             // 
+            // buttonReadClr
+            // 
+            this.buttonReadClr.Location = new System.Drawing.Point(432, 27);
+            this.buttonReadClr.Name = "buttonReadClr";
+            this.buttonReadClr.Size = new System.Drawing.Size(73, 45);
+            this.buttonReadClr.TabIndex = 29;
+            this.buttonReadClr.Text = "Llegir a través de Clr";
+            this.buttonReadClr.UseVisualStyleBackColor = true;
+            this.buttonReadClr.Click += new System.EventHandler(this.buttonReadClr_Click);
+            // 
             // StudentListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(512, 281);
+            this.Controls.Add(this.buttonReadClr);
             this.Controls.Add(this.buttonReadSql);
             this.Controls.Add(this.radioButtonApellido);
             this.Controls.Add(this.radioButtonEdad);
@@ -248,5 +261,6 @@
         private System.Windows.Forms.RadioButton radioButtonId;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Button buttonReadSql;
+        private System.Windows.Forms.Button buttonReadClr;
     }
 }

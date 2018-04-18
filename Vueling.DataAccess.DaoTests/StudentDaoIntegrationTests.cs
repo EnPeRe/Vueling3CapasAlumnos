@@ -185,47 +185,124 @@ namespace Vueling.DataAccess.Dao.Tests
             }
 
         }
-        #endregion
 
-        /*
-        #region Buscar
-        [DataRow(1, "H", "J", 12, "1123-A", "12-05-1992", "Nombre")]
-        [DataRow(2, "I", "I", 23, "98765434-L", "15-09-1982", "Apellido")]
-        [DataRow(2, "I", "F", 23, "98765434-L", "15-09-1982", "Apellido")]
-        [DataRow(3, "G", "B", 11, "11111111-Z", "1-10-2012", "Edad")]
+        [DataRow(1, "H", "J", 12, "1123-A", "12-05-1992")]
+        [DataRow(2, "I", "F", 23, "98765434-L", "15-09-1982")]
+        [DataRow(3, "G", "B", 11, "11111111-Z", "1-10-2012")]
         [DataTestMethod()]
-        public void BuscarNombreTxtTest(int id, string name, string surname, int edad, string dni, string datebirth, string prop)
+        public void ReadAllJson(int id, string name, string surname, int edad, string dni, string datebirth)
         {
-            log.Info("Metodo Test Buscar iniciado");
-
-
             Student student = new Student(id, name, surname, edad, dni, datebirth);
-            List<Student> test;
+            List<Student> liststudent = new List<Student>();
+            liststudent.Add(student);
+
+            List<Student> listtest;
+
             AbstarctFactory formatfactory = new FormatFactory();
-            IStudentDao daotxt = formatfactory.CreateStudentFormat(Config.txt);
-            daotxt.Add(student);
-            test = daotxt.Buscar(name, prop);
+            IStudentDao daotxt = formatfactory.CreateStudentFormat(Config.json);
 
-            log.Info("name: " + name);
-            log.Info("prop: " + prop);
-            if (test.Capacity > 0)
+            foreach (Student st in liststudent)
             {
-                foreach (Student st in test)
-                {
-                    Assert.IsTrue(st.Equals(student));
-                    logger.Info(st);
-                    logger.Info(student);
-                }
-            }
-            else
-            {
-                Assert.IsTrue(false);
+                daotxt.Add(st);
             }
 
-            log.Info("Metodo Test Buscar finalizado");
+            listtest = daotxt.ReadAll();
+
+            foreach (Student st in listtest)
+            {
+                Assert.IsTrue(st.Equals(student));
+            }
 
         }
-        #endregion 
-        */
+
+
+        [DataRow(1, "H", "J", 12, "1123-A", "12-05-1992")]
+        [DataRow(2, "I", "F", 23, "98765434-L", "15-09-1982")]
+        [DataRow(3, "G", "B", 11, "11111111-Z", "1-10-2012")]
+        [DataTestMethod()]
+        public void ReadAllXml(int id, string name, string surname, int edad, string dni, string datebirth)
+        {
+            Student student = new Student(id, name, surname, edad, dni, datebirth);
+            List<Student> liststudent = new List<Student>();
+            liststudent.Add(student);
+
+            List<Student> listtest;
+
+            AbstarctFactory formatfactory = new FormatFactory();
+            IStudentDao daotxt = formatfactory.CreateStudentFormat(Config.xml);
+
+            foreach (Student st in liststudent)
+            {
+                daotxt.Add(st);
+            }
+
+            listtest = daotxt.ReadAll();
+
+            foreach (Student st in listtest)
+            {
+                Assert.IsTrue(st.Equals(student));
+            }
+
+        }
+
+        [DataRow("H", "J", 12, "1123-A", "12-05-1992")]
+        [DataRow("I", "F", 23, "98765434-L", "15-09-1982")]
+        [DataRow("G", "B", 11, "11111111-Z", "1-10-2012")]
+        [DataTestMethod()]
+        public void ReadAllSql(string name, string surname, int edad, string dni, string datebirth)
+        {
+            Student student = new Student(name, surname, edad, dni, datebirth);
+            List<Student> liststudent = new List<Student>();
+            liststudent.Add(student);
+
+            List<Student> listtest;
+
+            AbstarctFactory formatfactory = new FormatFactory();
+            IStudentDao daotxt = formatfactory.CreateStudentFormat(Config.sql);
+
+            foreach (Student st in liststudent)
+            {
+                daotxt.Add(st);
+            }
+
+            listtest = daotxt.ReadAll();
+
+            foreach (Student st in listtest)
+            {
+                Assert.IsTrue(st.Equals(student));
+            }
+
+        }
+
+
+        [DataRow("H", "J", 12, "1123-A", "12-05-1992")]
+        [DataRow("I", "F", 23, "98765434-L", "15-09-1982")]
+        [DataRow("G", "B", 11, "11111111-Z", "1-10-2012")]
+        [DataTestMethod()]
+        public void ReadAllClr(string name, string surname, int edad, string dni, string datebirth)
+        {
+            Student student = new Student(name, surname, edad, dni, datebirth);
+            List<Student> liststudent = new List<Student>();
+            liststudent.Add(student);
+
+            List<Student> listtest;
+
+            AbstarctFactory formatfactory = new FormatFactory();
+            IStudentDao daotxt = formatfactory.CreateStudentFormat(Config.clr);
+
+            foreach (Student st in liststudent)
+            {
+                daotxt.Add(st);
+            }
+
+            listtest = daotxt.ReadAll();
+
+            foreach (Student st in listtest)
+            {
+                Assert.IsTrue(st.Equals(student));
+            }
+        }
+        #endregion
+
     }
 }

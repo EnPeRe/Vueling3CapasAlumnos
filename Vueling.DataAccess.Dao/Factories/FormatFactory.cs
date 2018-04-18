@@ -26,6 +26,7 @@ namespace Vueling.DataAccess.Dao.Factories
                 case Config.json: return new StudentDaoJson();
                 case Config.xml: return new StudentDaoXml();
                 case Config.sql: return new StudentDaoSql();
+                case Config.clr: return new StudentDaoClr();
                 default: throw new ArgumentException("Invalid type", "typ");
             }
         }

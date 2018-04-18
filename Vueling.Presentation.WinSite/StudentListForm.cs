@@ -85,6 +85,11 @@ namespace Vueling.Presentation.WinSite
             format = Config.sql;
             this.FillDataGrid(Config.sql);
         }
+        private void buttonReadClr_Click(object sender, EventArgs e)
+        {
+            format = Config.clr;
+            this.FillDataGrid(Config.clr);
+        }
         #endregion
 
         private void FillDataGrid(Config format)
@@ -107,7 +112,7 @@ namespace Vueling.Presentation.WinSite
             string selectedprop = "";
             try
             {
-                    foreach (Control con in this.Controls)
+                foreach (Control con in this.Controls)
                 {
                     if(con is RadioButton)
                     {
@@ -143,6 +148,12 @@ namespace Vueling.Presentation.WinSite
             this.Text = StringResources.FormName;
         }
 
-
+        private void dGVStudents_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = dGVStudents.CurrentCell.RowIndex;
+            string SelectedText = Convert.ToString(dGVStudents.Rows[index].Cells[4].FormattedValue.ToString());
+            string stringidfila = dGVStudents.Rows[index].Cells[2].Value.ToString();
+            int duracion = (int)dGVStudents.Rows[index].Cells[3].Value;
+        }
     }
 }

@@ -59,6 +59,16 @@ namespace Vueling.Common.Logic.Models
             //this.Student_Guid = Guid.NewGuid();
         }
 
+        public Student(string name, string surname, int edad, string dni, string datebirth)
+        {
+            this.Nombre = name;
+            this.Apellido = surname;
+            this.Edad = edad;
+            this.Dni = dni;
+            this.FechaNacimiento = Convert.ToDateTime(datebirth);
+            //this.Student_Guid = Guid.NewGuid();
+        }
+
 
         public Student(int id, string name, string surname, string fechanacimiento, int edad, string dateregister, string dni, string st_guid)
         {

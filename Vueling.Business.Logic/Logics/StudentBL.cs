@@ -22,12 +22,12 @@ namespace Vueling.Business.Logic
             // Afegim l'alumne utilitzant el mètode Add "sobreescrit" per a cada format (ADD)
         
         private readonly Logger logger = new Logger();
-        readonly AbstarctFactory FormatFacory;
+        readonly AbstarctFactory FormatFact;
         private Config config;
 
         public StudentBL()
         {
-            FormatFacory = new FormatFactory();
+            FormatFact = new FormatFactory();
         }
         public void BusinessLogic(Student student)
         {
@@ -37,7 +37,7 @@ namespace Vueling.Business.Logic
 
             try
             {
-                (FormatFacory.CreateStudentFormat(config)).Add(this.Complete(student));
+                (FormatFact.CreateStudentFormat(config)).Add(this.Complete(student));
             }
             catch (ArgumentNullException e)
             {
