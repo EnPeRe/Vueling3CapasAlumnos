@@ -19,7 +19,6 @@ namespace Vueling.DataAccess.DaoUnitaryTests.DAOs
 
         private readonly Logger logger = new Logger();
         private MockFactory mock_factory;
-        private Mock<IStudentDao> Istudentmock;
 
         [AssemblyInitialize]
         public static void Configure(TestContext tc)

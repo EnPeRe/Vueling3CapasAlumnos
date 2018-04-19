@@ -118,37 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="buttonTxt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>48, 214</value>
-  </data>
-  <data name="buttonTxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="buttonTxt.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="buttonTxt.Text" xml:space="preserve">
-    <value>TXT</value>
-  </data>
-  <data name="&gt;&gt;buttonTxt.Name" xml:space="preserve">
-    <value>buttonTxt</value>
-  </data>
-  <data name="&gt;&gt;buttonTxt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonTxt.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;buttonTxt.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
   <data name="textBoxId.Location" type="System.Drawing.Point, System.Drawing">
     <value>129, 37</value>
   </data>
   <data name="textBoxId.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 20</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="textBoxId.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
@@ -162,7 +138,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBoxId.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>15</value>
   </data>
   <data name="textBoxNombre.Location" type="System.Drawing.Point, System.Drawing">
     <value>129, 63</value>
@@ -183,7 +159,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBoxNombre.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>14</value>
   </data>
   <data name="textBoxApellidos.Location" type="System.Drawing.Point, System.Drawing">
     <value>129, 89</value>
@@ -204,7 +180,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBoxApellidos.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>13</value>
   </data>
   <data name="textBoxDni.Location" type="System.Drawing.Point, System.Drawing">
     <value>129, 115</value>
@@ -225,7 +201,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBoxDni.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>12</value>
   </data>
   <data name="labelId.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -252,7 +228,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelId.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>11</value>
   </data>
   <data name="labelNombre.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -279,7 +255,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelNombre.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>10</value>
   </data>
   <data name="labelApellido.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -306,7 +282,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelApellido.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>9</value>
   </data>
   <data name="labelDni.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -333,7 +309,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelDni.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>8</value>
   </data>
   <data name="labelFechaNacimiento.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -360,7 +336,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelFechaNacimiento.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>7</value>
   </data>
   <data name="textBoxFechaNacimiento.Location" type="System.Drawing.Point, System.Drawing">
     <value>129, 141</value>
@@ -381,54 +357,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBoxFechaNacimiento.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="buttonJson.Location" type="System.Drawing.Point, System.Drawing">
-    <value>154, 214</value>
-  </data>
-  <data name="buttonJson.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="buttonJson.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="buttonJson.Text" xml:space="preserve">
-    <value>JSON</value>
-  </data>
-  <data name="&gt;&gt;buttonJson.Name" xml:space="preserve">
-    <value>buttonJson</value>
-  </data>
-  <data name="&gt;&gt;buttonJson.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonJson.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;buttonJson.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="buttonXml.Location" type="System.Drawing.Point, System.Drawing">
-    <value>260, 214</value>
-  </data>
-  <data name="buttonXml.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
-  </data>
-  <data name="buttonXml.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="buttonXml.Text" xml:space="preserve">
-    <value>XML</value>
-  </data>
-  <data name="&gt;&gt;buttonXml.Name" xml:space="preserve">
-    <value>buttonXml</value>
-  </data>
-  <data name="&gt;&gt;buttonXml.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonXml.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;buttonXml.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
   <data name="cbLanguages.Items" xml:space="preserve">
@@ -547,7 +475,7 @@
     <value>NoControl</value>
   </data>
   <data name="buttonModificar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>260, 168</value>
+    <value>260, 167</value>
   </data>
   <data name="buttonModificar.Size" type="System.Drawing.Size, System.Drawing">
     <value>75, 23</value>
@@ -574,10 +502,10 @@
     <value>NoControl</value>
   </data>
   <data name="buttonEliminar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>260, 139</value>
+    <value>260, 205</value>
   </data>
   <data name="buttonEliminar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+    <value>75, 42</value>
   </data>
   <data name="buttonEliminar.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>

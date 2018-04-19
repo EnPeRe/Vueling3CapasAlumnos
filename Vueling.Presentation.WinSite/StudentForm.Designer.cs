@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentForm));
-            this.buttonTxt = new System.Windows.Forms.Button();
             this.textBoxId = new System.Windows.Forms.TextBox();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.textBoxApellidos = new System.Windows.Forms.TextBox();
@@ -40,8 +39,6 @@
             this.labelDni = new System.Windows.Forms.Label();
             this.labelFechaNacimiento = new System.Windows.Forms.Label();
             this.textBoxFechaNacimiento = new System.Windows.Forms.TextBox();
-            this.buttonJson = new System.Windows.Forms.Button();
-            this.buttonXml = new System.Windows.Forms.Button();
             this.cbLanguages = new System.Windows.Forms.ComboBox();
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.labelFormatAGuardar = new System.Windows.Forms.Label();
@@ -49,13 +46,6 @@
             this.buttonModificar = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // buttonTxt
-            // 
-            resources.ApplyResources(this.buttonTxt, "buttonTxt");
-            this.buttonTxt.Name = "buttonTxt";
-            this.buttonTxt.UseVisualStyleBackColor = true;
-            this.buttonTxt.Click += new System.EventHandler(this.buttonTxt_Click);
             // 
             // textBoxId
             // 
@@ -106,20 +96,6 @@
             // 
             resources.ApplyResources(this.textBoxFechaNacimiento, "textBoxFechaNacimiento");
             this.textBoxFechaNacimiento.Name = "textBoxFechaNacimiento";
-            // 
-            // buttonJson
-            // 
-            resources.ApplyResources(this.buttonJson, "buttonJson");
-            this.buttonJson.Name = "buttonJson";
-            this.buttonJson.UseVisualStyleBackColor = true;
-            this.buttonJson.Click += new System.EventHandler(this.buttonJson_Click);
-            // 
-            // buttonXml
-            // 
-            resources.ApplyResources(this.buttonXml, "buttonXml");
-            this.buttonXml.Name = "buttonXml";
-            this.buttonXml.UseVisualStyleBackColor = true;
-            this.buttonXml.Click += new System.EventHandler(this.buttonXml_Click);
             // 
             // cbLanguages
             // 
@@ -174,8 +150,6 @@
             this.Controls.Add(this.labelFormatAGuardar);
             this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.cbLanguages);
-            this.Controls.Add(this.buttonXml);
-            this.Controls.Add(this.buttonJson);
             this.Controls.Add(this.textBoxFechaNacimiento);
             this.Controls.Add(this.labelFechaNacimiento);
             this.Controls.Add(this.labelDni);
@@ -186,7 +160,6 @@
             this.Controls.Add(this.textBoxApellidos);
             this.Controls.Add(this.textBoxNombre);
             this.Controls.Add(this.textBoxId);
-            this.Controls.Add(this.buttonTxt);
             this.Name = "StudentForm";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -194,8 +167,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonTxt;
         private System.Windows.Forms.TextBox textBoxId;
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.TextBox textBoxApellidos;
@@ -206,8 +177,6 @@
         private System.Windows.Forms.Label labelDni;
         private System.Windows.Forms.Label labelFechaNacimiento;
         private System.Windows.Forms.TextBox textBoxFechaNacimiento;
-        private System.Windows.Forms.Button buttonJson;
-        private System.Windows.Forms.Button buttonXml;
         private System.Windows.Forms.ComboBox cbLanguages;
         private System.Windows.Forms.Button buttonGuardar;
         private System.Windows.Forms.Label labelFormatAGuardar;

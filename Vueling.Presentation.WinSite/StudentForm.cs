@@ -45,6 +45,7 @@ namespace Vueling.Presentation.WinSite
             this.buttonModificar.Enabled = false;
             this.buttonGuardar.Enabled = true;
             this.buttonEliminar.Enabled = false;
+            this.textBoxId.Enabled = true;
 
 
             logger.Warn("Warning de proba");
@@ -111,51 +112,6 @@ namespace Vueling.Presentation.WinSite
             studentBL.Update(student);
 
         }
-
-
-        #region buttons a borrar
-        private void buttonTxt_Click(object sender, EventArgs e)
-        {
-            this.SaveStudentData();
-
-            try
-            {
-                studentBL.BusinessLogic(student);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(new StringBuilder(ex.StackTrace).Append(ex.Message).ToString());
-            }
-        }
-
-        private void buttonJson_Click(object sender, EventArgs e)
-        {
-            this.SaveStudentData();
-
-            try
-            {
-                studentBL.BusinessLogic(student);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(new StringBuilder(ex.StackTrace).Append(ex.Message).ToString());
-            }
-        }
-
-        private void buttonXml_Click(object sender, EventArgs e)
-        {
-            this.SaveStudentData();
-
-            try
-            {
-                studentBL.BusinessLogic(student);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(new StringBuilder(ex.StackTrace).Append(ex.Message).ToString());
-            }
-        }
-        #endregion
 
         private void SaveStudentData()
         {

@@ -29,6 +29,11 @@ namespace Vueling.DataAccess.Dao
         private Student studentread;
         private List<Student> liststudents;
 
+        public StudentDaoSql()
+        {
+            studentread = new Student();
+        }
+
         public Student Add(Student student)
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
@@ -51,13 +56,10 @@ namespace Vueling.DataAccess.Dao
                         cmd.Parameters.AddWithValue("@FechaNacimiento", student.FechaNacimiento);
                         cmd.Parameters.AddWithValue("@HoraRegistro", student.HoraRegistro);
 
-                        //cmd.Prepare();
-
                         cmd.ExecuteNonQuery();
                         cmd.Parameters.Clear();
                         cmd.CommandText = "SELECT @@IDENTITY";
 
-                        //studentread = SelectStudentForAddMethod(conn, student.Student_Guid);
                     }
                 }
             }

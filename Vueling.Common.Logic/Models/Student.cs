@@ -15,22 +15,10 @@ namespace Vueling.Common.Logic.Models
     //[Serializable, XmlRoot("enric.pedros")]
     public class Student : VuelingModelObject
     {
-        #region Atributos
-        private int idAlumno;
-        private string nombre;
-        #endregion
 
         #region Properties
-        public int IdAlumno
-        {
-            get { return idAlumno; }
-            set { idAlumno = value; }
-        }
-        public string Nombre
-        {
-            get { return nombre; }
-            set { nombre = value; }
-        }
+        public int IdAlumno { get; set; }
+        public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Dni { get; set; }
         public DateTime FechaNacimiento { get; set; }
@@ -45,18 +33,16 @@ namespace Vueling.Common.Logic.Models
         #region constructors
         public Student()
         {
-            //this.Student_Guid = Guid.NewGuid();
         }
 
         public Student(int id, string name, string surname, int edad, string dni, string datebirth)
         {
-            this.idAlumno = id;
+            this.IdAlumno = id;
             this.Nombre = name;
             this.Apellido = surname;
             this.Edad = edad;
             this.Dni = dni;
             this.FechaNacimiento = Convert.ToDateTime(datebirth);
-            //this.Student_Guid = Guid.NewGuid();
         }
 
         public Student(string name, string surname, int edad, string dni, string datebirth)
@@ -66,13 +52,12 @@ namespace Vueling.Common.Logic.Models
             this.Edad = edad;
             this.Dni = dni;
             this.FechaNacimiento = Convert.ToDateTime(datebirth);
-            //this.Student_Guid = Guid.NewGuid();
         }
 
 
         public Student(int id, string name, string surname, string fechanacimiento, int edad, string dateregister, string dni, string st_guid)
         {
-            this.idAlumno = id;
+            this.IdAlumno = id;
             this.Nombre = name;
             this.Apellido = surname;
             this.FechaNacimiento = Convert.ToDateTime(fechanacimiento);
@@ -94,16 +79,11 @@ namespace Vueling.Common.Logic.Models
 
         public override string ToJson()
         {
-            //return "{\"Nombre\":\"" + this.Nombre + "\",\"Id\":" + this.Id + ",\"Edad\":" + this.Edad + ",\"Dni\":\"" + this.Dni + "\",\"Guid\":" + this.Al_Guid + "}";
             return "[" + JsonConvert.SerializeObject(this) + "]";
-
         }
 
         public override string ToXml()
         {
-
-            //new XDocument( new XElement("root", new XElement("someNode", "someValue"))).Save("foo.xml");
-
             XmlSerializer xmlSerializer = new XmlSerializer(this.GetType());
 
             using (StringWriter textWriter = new StringWriter())
@@ -119,8 +99,6 @@ namespace Vueling.Common.Logic.Models
         {
             var student = obj as Student;
             return student != null &&
-                   idAlumno == student.idAlumno &&
-                   nombre == student.nombre &&
                    IdAlumno == student.IdAlumno &&
                    Nombre == student.Nombre &&
                    Apellido == student.Apellido &&
@@ -134,9 +112,7 @@ namespace Vueling.Common.Logic.Models
 
         public override int GetHashCode()
         {
-            var hashCode = 1497137188;
-            hashCode = hashCode * -1521134295 + idAlumno.GetHashCode();
-            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(nombre);
+            var hashCode = 1336891488;
             hashCode = hashCode * -1521134295 + IdAlumno.GetHashCode();
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Nombre);
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Apellido);

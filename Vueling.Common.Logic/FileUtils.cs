@@ -11,7 +11,7 @@ using Vueling.Common.Logic.Models;
 
 namespace Vueling.Common.Logic
 {
-    public class FileUtils
+    public static class FileUtils
     {
 
         //Mirar lo del Path amb variables d'entorn (potser posar només el nom del fitxer en una variable d'entorn, pero la carpeta no)
@@ -26,22 +26,21 @@ namespace Vueling.Common.Logic
         {
             try
             {
-                //return Environment.GetEnvironmentVariable("FolderToSave", EnvironmentVariableTarget.User) + @"\" + typeof(Student).Name;
                 return Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\" + typeof(Student).Name;
             }
-            catch (AccessViolationException)
+            catch (AccessViolationException e)
             {
-                logger.Error("Error en el metodo GetPath()");
+                logger.Error("Error en el metodo GetPath()" + e.Message);
                 throw;
             }
             catch (ArgumentException e)
             {
-                logger.Error("Error en el metodo GetPath()");
+                logger.Error("Error en el metodo GetPath()" + e.Message);
                 throw;
             }
             catch (PlatformNotSupportedException e)
             {
-                logger.Error("Error en el metodo GetPath()");
+                logger.Error("Error en el metodo GetPath()" + e.Message);
                 throw;
             }
         }

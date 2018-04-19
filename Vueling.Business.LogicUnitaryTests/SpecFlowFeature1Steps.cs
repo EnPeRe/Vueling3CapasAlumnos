@@ -28,7 +28,7 @@ namespace Vueling.Business.LogicUnitaryTests
         [When(@"I press add")]
         public void WhenIPressAdd()
         {
-            resultatatestejar = StudentBL.GetAge(fechaprimera, fechasegunda);
+            //resultatatestejar = StudentBL.GetAge(fechaprimera, fechasegunda);
         }
         
         [Then(@"the result should be (.*) on the screen")]
