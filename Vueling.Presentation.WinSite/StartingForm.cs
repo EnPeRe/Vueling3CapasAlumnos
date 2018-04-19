@@ -90,27 +90,32 @@ namespace Vueling.Presentation.WinSite
         {
             FileUtils.SetFormat(Config.txt);
             this.ChangeFormatLabelStudentForm();
+            this.HabiliteIdStudentForm();
         }
         private void jsonToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FileUtils.SetFormat(Config.json);
             this.ChangeFormatLabelStudentForm();
+            this.HabiliteIdStudentForm();
         }
 
         private void xmlToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FileUtils.SetFormat(Config.xml);
             this.ChangeFormatLabelStudentForm();
+            this.HabiliteIdStudentForm();
         }
         private void sqlToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FileUtils.SetFormat(Config.sql);
             this.ChangeFormatLabelStudentForm();
+            this.InhabiliteIdStudentForm();
         }
         private void clrToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FileUtils.SetFormat(Config.clr);
             this.ChangeFormatLabelStudentForm();
+            this.InhabiliteIdStudentForm();
         }
         #endregion
 
@@ -120,6 +125,14 @@ namespace Vueling.Presentation.WinSite
             if (childform != null && childform.GetType() == typeof(StudentForm)) ((StudentForm)childform).ChangeFormatLabel();
         }
 
+        private void InhabiliteIdStudentForm()
+        {
+            if (childform != null && childform.GetType() == typeof(StudentForm)) ((StudentForm)childform).InhabiliteId();
+        }
 
+        private void HabiliteIdStudentForm()
+        {
+            if (childform != null && childform.GetType() == typeof(StudentForm)) ((StudentForm)childform).HabiliteId();
+        }
     }
 }

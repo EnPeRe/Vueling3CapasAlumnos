@@ -16,7 +16,7 @@ using Microsoft.SqlServer.Server;
 
 namespace Vueling.DataAccess.Dao
 {
-    public class StudentDaoClr : IStudentDao, IDelete
+    public class StudentDaoClr : IStudentDaoDB
     {
         private readonly Logger logger = new Logger();
 
@@ -185,6 +185,11 @@ namespace Vueling.DataAccess.Dao
                 throw;
             }
             return rowsdeleted;
+        }
+
+        public int UpdateById(Student student)
+        {
+            throw new NotImplementedException();
         }
     }
 }

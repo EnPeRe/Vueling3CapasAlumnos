@@ -7,9 +7,8 @@ using Vueling.Common.Logic.Models;
 
 namespace Vueling.DataAccess.Dao.Interfaces
 {
-    public interface IStudentDao
+    public interface IUpdate
     {
-        Student Add(Student student);
-        List<Student> ReadAll();
+        int UpdateById(Student student);
     }
 }

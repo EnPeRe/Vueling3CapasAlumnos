@@ -151,9 +151,17 @@ namespace Vueling.Presentation.WinSite
         private void dGVStudents_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = dGVStudents.CurrentCell.RowIndex;
-            string SelectedText = Convert.ToString(dGVStudents.Rows[index].Cells[4].FormattedValue.ToString());
-            string stringidfila = dGVStudents.Rows[index].Cells[2].Value.ToString();
-            int duracion = (int)dGVStudents.Rows[index].Cells[3].Value;
+            string SelectedId = dGVStudents.Rows[index].Cells[0].Value.ToString();
+            string SelectedName = Convert.ToString(dGVStudents.Rows[index].Cells[1].FormattedValue.ToString());
+            string SelectedSurname = dGVStudents.Rows[index].Cells[2].Value.ToString();
+            string SelectedAge = dGVStudents.Rows[index].Cells[3].Value.ToString();
+            string SelectedDateBirth = dGVStudents.Rows[index].Cells[4].Value.ToString();
+
+            StudentForm stform = new StudentForm(SelectedId, SelectedName, SelectedSurname, SelectedAge, SelectedDateBirth);
+            stform.MdiParent = this.MdiParent;
+            stform.Show();
+
+            this.Close();
         }
     }
 }

@@ -12,6 +12,7 @@ using Vueling.Common.Logic.Models;
 using Vueling.DataAccess.Dao.Factories;
 using System.IO;
 using Vueling.Business.Logic.Interfaces;
+using Vueling.DataAccess.Dao.Interfaces;
 
 namespace Vueling.Business.Logic.Tests
 {

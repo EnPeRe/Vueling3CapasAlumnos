@@ -29,6 +29,8 @@ namespace Vueling.Presentation.WinSite
 
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private static ITargetAdapterForLogger logger = new Logger();
+
+        #region contructors
         public StudentForm()
         {
             InitializeComponent();
@@ -37,12 +39,49 @@ namespace Vueling.Presentation.WinSite
             AplicarIdioma();
 
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            string format = Environment.GetEnvironmentVariable("Saved_Format", EnvironmentVariableTarget.User);
+            if (format == "sql" || format == "clr") this.InhabiliteId(); else this.HabiliteId();
+
+            this.buttonModificar.Enabled = false;
+            this.buttonGuardar.Enabled = true;
+            this.buttonEliminar.Enabled = false;
+
 
             logger.Warn("Warning de proba");
             log.Warn("Error de proba");
 
             this.ChangeFormatLabel();
         }
+
+        public StudentForm(string id, string name, string surname, string dni, string datebirth)
+        {
+            #region emptyconstructor
+            InitializeComponent();
+
+
+            student = new Student();
+            studentBL = new StudentBL();
+            AplicarIdioma();
+
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            string format = Environment.GetEnvironmentVariable("Saved_Format", EnvironmentVariableTarget.User);
+            if (format == "sql" || format == "clr") this.InhabiliteId(); else this.HabiliteId();
+
+            this.ChangeFormatLabel();
+            #endregion
+
+            this.textBoxId.Text = id;
+            this.textBoxNombre.Text = name;
+            this.textBoxApellidos.Text = surname;
+            this.textBoxDni.Text = dni;
+            this.textBoxFechaNacimiento.Text = datebirth;
+
+            this.textBoxId.Enabled = false;
+            this.buttonModificar.Enabled = true;
+            this.buttonGuardar.Enabled = false;
+            this.buttonEliminar.Enabled = true;
+        }
+        #endregion
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
@@ -57,6 +96,22 @@ namespace Vueling.Presentation.WinSite
                 MessageBox.Show(new StringBuilder(ex.StackTrace).Append(ex.Message).ToString());
             }
         }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            this.SaveStudentData();
+
+            studentBL.Delete(student);
+        }
+
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+            this.SaveStudentData();
+
+            studentBL.Update(student);
+
+        }
+
 
         #region buttons a borrar
         private void buttonTxt_Click(object sender, EventArgs e)
@@ -132,6 +187,7 @@ namespace Vueling.Presentation.WinSite
             }
         }
 
+        #region idiomas
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(cbLanguages.SelectedItem.ToString());
@@ -147,7 +203,8 @@ namespace Vueling.Presentation.WinSite
             labelFechaNacimiento.Text = StringResources.labelFechaNacimiento;
             this.Text = StringResources.FormName;
         }
-        
+        #endregion
+
         public void ChangeFormatLabel()
         {
             try
@@ -167,5 +224,15 @@ namespace Vueling.Presentation.WinSite
                 logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
             }
         }
+
+        public void InhabiliteId()
+        {
+            this.textBoxId.Enabled = false;
+        }
+        public void HabiliteId()
+        {
+            this.textBoxId.Enabled = true;
+        }
+
     }
 }

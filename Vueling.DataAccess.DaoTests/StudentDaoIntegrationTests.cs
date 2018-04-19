@@ -9,6 +9,7 @@ using System.IO;
 using Vueling.DataAccess.Dao.Factories;
 using Vueling.Common.Logic.Models;
 using Vueling.Common.Logic.LoggerAdapter;
+using Vueling.DataAccess.Dao.Interfaces;
 
 namespace Vueling.DataAccess.Dao.Tests
 {

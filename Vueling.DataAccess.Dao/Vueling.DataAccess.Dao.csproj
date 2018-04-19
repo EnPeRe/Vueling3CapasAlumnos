@@ -54,9 +54,13 @@
     <Compile Include="DAOs\StudentDaoClr.cs" />
     <Compile Include="DAOs\StudentDaoSql.cs" />
     <Compile Include="DAOs\StudentDaoXml.cs" />
+    <Compile Include="Factories\AbstarctDBFactory .cs" />
+    <Compile Include="Factories\FormatDBFactory.cs" />
     <Compile Include="Factories\FormatFactory.cs" />
     <Compile Include="Factories\AbstarctFactory.cs" />
+    <Compile Include="Interfaces\IUpdate.cs" />
     <Compile Include="Interfaces\IDelete.cs" />
+    <Compile Include="Interfaces\IStudentDaoDB.cs" />
     <Compile Include="Interfaces\IStudentDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DAOs\StudentDaoTxt.cs" />

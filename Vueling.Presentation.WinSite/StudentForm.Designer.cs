@@ -46,6 +46,8 @@
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.labelFormatAGuardar = new System.Windows.Forms.Label();
             this.labelFormat = new System.Windows.Forms.Label();
+            this.buttonModificar = new System.Windows.Forms.Button();
+            this.buttonEliminar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonTxt
@@ -148,10 +150,26 @@
             resources.ApplyResources(this.labelFormat, "labelFormat");
             this.labelFormat.Name = "labelFormat";
             // 
+            // buttonModificar
+            // 
+            resources.ApplyResources(this.buttonModificar, "buttonModificar");
+            this.buttonModificar.Name = "buttonModificar";
+            this.buttonModificar.UseVisualStyleBackColor = true;
+            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
+            // 
+            // buttonEliminar
+            // 
+            resources.ApplyResources(this.buttonEliminar, "buttonEliminar");
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            // 
             // StudentForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonEliminar);
+            this.Controls.Add(this.buttonModificar);
             this.Controls.Add(this.labelFormat);
             this.Controls.Add(this.labelFormatAGuardar);
             this.Controls.Add(this.buttonGuardar);
@@ -194,6 +212,8 @@
         private System.Windows.Forms.Button buttonGuardar;
         private System.Windows.Forms.Label labelFormatAGuardar;
         private System.Windows.Forms.Label labelFormat;
+        private System.Windows.Forms.Button buttonModificar;
+        private System.Windows.Forms.Button buttonEliminar;
     }
 }
 

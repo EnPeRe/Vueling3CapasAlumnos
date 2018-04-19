@@ -8,9 +8,9 @@ using Vueling.DataAccess.Dao.Interfaces;
 
 namespace Vueling.DataAccess.Dao.Factories
 {
-    public abstract class AbstarctFactory
+    public abstract class AbstarctDBFactory
     {
         // return el tipo de formato
-        public abstract IStudentDao CreateStudentFormat(Config typ);
+        public abstract IStudentDaoDB CreateStudentFormatDB(Config typ);
     }
 }

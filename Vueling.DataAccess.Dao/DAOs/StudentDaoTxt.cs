@@ -9,6 +9,7 @@ using Vueling.Common.Logic;
 using Vueling.Common.Logic.CommonResources;
 using Vueling.Common.Logic.LoggerAdapter;
 using Vueling.Common.Logic.Models;
+using Vueling.DataAccess.Dao.Interfaces;
 
 namespace Vueling.DataAccess.Dao
 {

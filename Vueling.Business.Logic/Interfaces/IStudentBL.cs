@@ -11,5 +11,7 @@ namespace Vueling.Business.Logic
     {
         void BusinessLogic(Student student);
         Student Complete(Student student);
+        void Delete(Student student);
+        void Update(Student student);
     }
 }

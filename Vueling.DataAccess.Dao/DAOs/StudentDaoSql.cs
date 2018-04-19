@@ -15,7 +15,7 @@ using Vueling.DataAccess.Dao.Interfaces;
 
 namespace Vueling.DataAccess.Dao
 {
-    public class StudentDaoSql : IStudentDao, IDelete
+    public class StudentDaoSql : IStudentDaoDB
     {
         private readonly Logger logger = new Logger();
 
@@ -57,7 +57,7 @@ namespace Vueling.DataAccess.Dao
                         cmd.Parameters.Clear();
                         cmd.CommandText = "SELECT @@IDENTITY";
 
-                        studentread = SelectStudentForAddMethod(conn, student.Student_Guid);
+                        //studentread = SelectStudentForAddMethod(conn, student.Student_Guid);
                     }
                 }
             }
@@ -162,12 +162,13 @@ namespace Vueling.DataAccess.Dao
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 
             liststudents = new List<Student>();
-            string sql = "DELETE * FROM dbo.Students WHERE Id = @Id";
+            string sql = "DELETE FROM dbo.Students WHERE Id = @Id";
             int rowsdeleted;
             try
             {
                 using (conn = new SqlConnection(conectionstring))
                 {
+                    conn.Open();
                     using (cmd = new SqlCommand(sql, conn))
                     {
                         cmd.Parameters.AddWithValue("@Id", id);
@@ -175,6 +176,40 @@ namespace Vueling.DataAccess.Dao
                     }
                 }
             }catch(InvalidCastException ex)
+            {
+                logger.Error(new StringBuilder(ex.StackTrace).Append(ex.Message).ToString());
+                throw;
+            }
+            return rowsdeleted;
+        }
+
+        public int UpdateById(Student student)
+        {
+            logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
+
+            liststudents = new List<Student>();
+            string sql = "UPDATE dbo.Students SET Nombre = @Nombre, Apellidos = @Apellidos, Dni=@Dni , Edad=@Edad, FechaNacimiento = @FechaNacimiento WHERE @Id=Id ";
+
+            int rowsdeleted;
+            try
+            {
+                using (conn = new SqlConnection(conectionstring))
+                {
+                    conn.Open();
+                    using (cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Id", student.IdAlumno.ToString());
+                        cmd.Parameters.AddWithValue("@Nombre", student.Nombre);
+                        cmd.Parameters.AddWithValue("@Apellidos", student.Apellido);
+                        cmd.Parameters.AddWithValue("@Edad", student.Edad);
+                        cmd.Parameters.AddWithValue("@Dni", student.Dni);
+                        cmd.Parameters.AddWithValue("@FechaNacimiento", student.FechaNacimiento);
+
+                        rowsdeleted = cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (InvalidCastException ex)
             {
                 logger.Error(new StringBuilder(ex.StackTrace).Append(ex.Message).ToString());
                 throw;

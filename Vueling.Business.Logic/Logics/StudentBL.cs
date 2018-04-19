@@ -23,11 +23,13 @@ namespace Vueling.Business.Logic
         
         private readonly Logger logger = new Logger();
         readonly AbstarctFactory FormatFact;
+        readonly AbstarctDBFactory FormatDBFactory;
         private Config config;
 
         public StudentBL()
         {
             FormatFact = new FormatFactory();
+            FormatDBFactory = new FormatDBFactory();
         }
         public void BusinessLogic(Student student)
         {
@@ -51,6 +53,17 @@ namespace Vueling.Business.Logic
             }
             logger.Debug(ResourceLogger.EndMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 
+        }
+
+        public void Delete(Student student)
+        {
+            (FormatDBFactory.CreateStudentFormatDB(Config.sql)).DeleteById(this.Complete(student).IdAlumno);
+        }
+
+        public void Update(Student student)
+        {
+            this.GetAge(student);
+            (FormatDBFactory.CreateStudentFormatDB(Config.sql)).UpdateById(student);
         }
 
         public Student Complete(Student student)
