@@ -31,6 +31,8 @@ namespace Vueling.Business.Logic
             FormatFact = new FormatFactory();
             FormatDBFactory = new FormatDBFactory();
         }
+
+        #region Add
         public void BusinessLogic(Student student)
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
@@ -43,18 +45,19 @@ namespace Vueling.Business.Logic
             }
             catch (ArgumentNullException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (Exception e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             logger.Debug(ResourceLogger.EndMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
-
         }
+        #endregion
 
+        #region UpatDel
         public void Delete(Student student)
         {
             (FormatDBFactory.CreateStudentFormatDB(Config.sql)).DeleteById(this.Complete(student).IdAlumno);
@@ -65,7 +68,9 @@ namespace Vueling.Business.Logic
             this.GetAge(student);
             (FormatDBFactory.CreateStudentFormatDB(Config.sql)).UpdateById(student);
         }
+        #endregion
 
+        #region Helpers
         public Student Complete(Student student)
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
@@ -118,5 +123,6 @@ namespace Vueling.Business.Logic
             logger.Debug(ResourceLogger.EndMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 
         }
+        #endregion
     }
 }

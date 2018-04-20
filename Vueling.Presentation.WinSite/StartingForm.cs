@@ -98,7 +98,6 @@ namespace Vueling.Presentation.WinSite
             this.ChangeFormatLabelStudentForm();
             this.HabiliteIdStudentForm();
         }
-
         private void xmlToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FileUtils.SetFormat(Config.xml);
@@ -119,6 +118,7 @@ namespace Vueling.Presentation.WinSite
         }
         #endregion
 
+        #region Change of StudentFormats
         private void ChangeFormatLabelStudentForm()
         {
             //Millor amb events personalitzats pero no se fer-ho :P
@@ -134,5 +134,6 @@ namespace Vueling.Presentation.WinSite
         {
             if (childform != null && childform.GetType() == typeof(StudentForm)) ((StudentForm)childform).HabiliteId();
         }
+        #endregion
     }
 }

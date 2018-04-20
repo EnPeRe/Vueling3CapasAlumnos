@@ -22,7 +22,7 @@ namespace Vueling.DataAccess.Dao
         //Llegim una llista del fitxer (READALL)
 
         private readonly Logger logger = new Logger();
-        private readonly string path = FileUtils.GetPath() + ".txt";
+        private readonly string path = new StringBuilder(FileUtils.GetPath()).Append(".txt").ToString();
 
         private Student readstudent;
         private Student studentread;
@@ -40,7 +40,7 @@ namespace Vueling.DataAccess.Dao
             }
             catch (Exception e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
 
@@ -71,47 +71,47 @@ namespace Vueling.DataAccess.Dao
             }
             catch (System.Security.SecurityException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (NotSupportedException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (FileNotFoundException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (UnauthorizedAccessException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (DirectoryNotFoundException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (PathTooLongException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (ArgumentNullException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (ArgumentException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (IOException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             logger.Debug(ResourceLogger.EndMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
@@ -141,47 +141,47 @@ namespace Vueling.DataAccess.Dao
             }
             catch (System.Security.SecurityException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (NotSupportedException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (FileNotFoundException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (UnauthorizedAccessException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (DirectoryNotFoundException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (PathTooLongException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (ArgumentNullException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (ArgumentException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (IOException e)
             {
-                logger.Error(e.StackTrace + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
 
@@ -213,47 +213,47 @@ namespace Vueling.DataAccess.Dao
             }
             catch (System.Security.SecurityException e)
             {
-                logger.Error("Error en el metodo GetStudentFromJsonByGuid()" + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (NotSupportedException e)
             {
-                logger.Error("Error en el metodo GetStudentFromJsonByGuid()" + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (FileNotFoundException e)
             {
-                logger.Error("Error en el metodo GetStudentFromJsonByGuid()" + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (UnauthorizedAccessException e)
             {
-                logger.Error("Error en el metodo GetStudentFromJsonByGuid()" + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (DirectoryNotFoundException e)
             {
-                logger.Error("Error en el metodo GetStudentFromJsonByGuid()" + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (PathTooLongException e)
             {
-                logger.Error("Error en el metodo GetStudentFromJsonByGuid()" + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (ArgumentNullException e)
             {
-                logger.Error("Error en el metodo GetStudentFromJsonByGuid()" + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (ArgumentException e)
             {
-                logger.Error("Error en el metodo GetStudentFromJsonByGuid()" + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
             catch (IOException e)
             {
-                logger.Error("Error en el metodo GetStudentFromJsonByGuid()" + e.Message);
+                logger.Error(new StringBuilder(e.StackTrace).Append(e.Message).ToString());
                 throw;
             }
 

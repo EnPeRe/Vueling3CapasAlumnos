@@ -84,6 +84,7 @@ namespace Vueling.Presentation.WinSite
         }
         #endregion
 
+        #region buttuns
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
             this.SaveStudentData();
@@ -110,8 +111,8 @@ namespace Vueling.Presentation.WinSite
             this.SaveStudentData();
 
             studentBL.Update(student);
-
         }
+        #endregion
 
         private void SaveStudentData()
         {
@@ -161,6 +162,7 @@ namespace Vueling.Presentation.WinSite
         }
         #endregion
 
+        #region Controls control
         public void ChangeFormatLabel()
         {
             try
@@ -189,6 +191,7 @@ namespace Vueling.Presentation.WinSite
         {
             this.textBoxId.Enabled = true;
         }
+        #endregion
 
     }
 }
