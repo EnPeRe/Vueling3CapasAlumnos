@@ -17,16 +17,18 @@ namespace Vueling.Business.Logic
         // Canviar els config per enumFormat
 
         // Fem la logica de Buisness principal
-            // Completem l'alumne (COMPLETE) calculant edat (GETAGE) i horaregitre (HORAREGISTRE)
-            // Crear objecte StudentDao__ en funció del format (CREATEDTUDENTFORMAT)
-            // Afegim l'alumne utilitzant el mètode Add "sobreescrit" per a cada format (ADD)
-        
-        private readonly Logger logger = new Logger();
+        // Completem l'alumne (COMPLETE) calculant edat (GETAGE) i horaregitre (HORAREGISTRE)
+        // Crear objecte StudentDao__ en funció del format (CREATEDTUDENTFORMAT)
+        // Afegim l'alumne utilitzant el mètode Add "sobreescrit" per a cada format (ADD)
+        private readonly LoggerFactory logfact;
+        private readonly ITargetAdapterForLogger logger;
         private readonly StudentDao studentdao;
 
         public StudentBL()
         {
             studentdao = new StudentDao();
+            logfact = new LoggerFactory();
+            logger = logfact.CreateLogger();
         }
 
         #region Add

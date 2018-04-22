@@ -70,7 +70,10 @@
       <DependentUpon>ResourceLogger.resx</DependentUpon>
     </Compile>
     <Compile Include="LanguageUtils.cs" />
+    <Compile Include="LoggerAdapter\LoggerFactory.cs" />
     <Compile Include="LoggerAdapter\ITargetAdapterForLogger.cs" />
+    <Compile Include="LoggerAdapter\SeriLogger.cs" />
+    <Compile Include="Models\Logger_enum.cs" />
     <Compile Include="Models\Config_enum.cs" />
     <Compile Include="FileUtils.cs" />
     <Compile Include="LoggerAdapter\Logger.cs" />
