@@ -22,14 +22,11 @@ namespace Vueling.Business.Logic
             // Afegim l'alumne utilitzant el mètode Add "sobreescrit" per a cada format (ADD)
         
         private readonly Logger logger = new Logger();
-        readonly AbstarctFactory FormatFact;
-        readonly AbstarctDBFactory FormatDBFactory;
-        private Config config;
+        private readonly StudentDao studentdao;
 
         public StudentBL()
         {
-            FormatFact = new FormatFactory();
-            FormatDBFactory = new FormatDBFactory();
+            studentdao = new StudentDao();
         }
 
         #region Add
@@ -37,11 +34,9 @@ namespace Vueling.Business.Logic
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 
-            config = (Config)Enum.Parse(typeof(Config), student.SavedFormat);
-
             try
             {
-                (FormatFact.CreateStudentFormat(config)).Add(this.Complete(student));
+                studentdao.Add(this.Complete(student));
             }
             catch (ArgumentNullException e)
             {
@@ -58,15 +53,15 @@ namespace Vueling.Business.Logic
         #endregion
 
         #region UpatDel
-        public void Delete(Student student)
-        {
-            (FormatDBFactory.CreateStudentFormatDB(Config.sql)).DeleteById(this.Complete(student).IdAlumno);
-        }
-
         public void Update(Student student)
         {
             this.GetAge(student);
-            (FormatDBFactory.CreateStudentFormatDB(Config.sql)).UpdateById(student);
+            studentdao.Update(student);
+        }
+
+        public void Delete(Student student)
+        {
+            studentdao.Delete(student);
         }
         #endregion
 

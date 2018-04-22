@@ -16,7 +16,7 @@ using Vueling.DataAccess.Dao.Interfaces;
 
 namespace Vueling.DataAccess.Dao
 {
-    public class StudentDaoXml : IStudentDao
+    public class StudentDaoXml : ARepository
     {
 
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
@@ -27,7 +27,7 @@ namespace Vueling.DataAccess.Dao
         private List<Student> liststudents;
         private List<Student> alllines;
 
-        public Student Add(Student student)
+        public override Student Add(Student student)
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 
@@ -198,7 +198,7 @@ namespace Vueling.DataAccess.Dao
             return studentread;
         }
 
-        public List<Student> ReadAll()
+        public override List<Student> ReadAll()
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 

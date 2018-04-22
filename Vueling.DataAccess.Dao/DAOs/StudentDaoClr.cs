@@ -16,13 +16,10 @@ using Microsoft.SqlServer.Server;
 
 namespace Vueling.DataAccess.Dao
 {
-    public class StudentDaoClr : IStudentDaoDB
+    public class StudentDaoClr : ARepository
     {
         private readonly Logger logger = new Logger();
-
-        // private readonly string conectionstring = "s"; //sql connexion string llegir de variable d'entorn codificada
         private readonly string conectionstring = "Data Source = AM-BCN-POR-378; Initial Catalog = StudentDB; Trusted_Connection=yes; Integrated Security = SSPI";
-        // private readonly string conectionstring = Environment.GetEnvironmentVariable("connectionStringStudentDB", EnvironmentVariableTarget.User);
 
         private SqlCommand cmd;
         private SqlConnection conn;
@@ -30,7 +27,7 @@ namespace Vueling.DataAccess.Dao
         private Student studentread;
         private List<Student> liststudents;
 
-        public Student Add(Student student)
+        public override Student Add(Student student)
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 
@@ -115,7 +112,7 @@ namespace Vueling.DataAccess.Dao
             return st;
         }
 
-        public List<Student> ReadAll()
+        public override List<Student> ReadAll()
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 
@@ -162,7 +159,7 @@ namespace Vueling.DataAccess.Dao
             return liststudents;
         }
 
-        public int DeleteById(int id)
+        public override int DeleteById(int id)
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 
@@ -187,7 +184,7 @@ namespace Vueling.DataAccess.Dao
             return rowsdeleted;
         }
 
-        public int UpdateById(Student student)
+        public override int UpdateById(Student student)
         {
             throw new NotImplementedException();
         }

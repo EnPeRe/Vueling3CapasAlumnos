@@ -14,7 +14,7 @@ using Vueling.DataAccess.Dao.Interfaces;
 
 namespace Vueling.DataAccess.Dao
 {
-    public class StudentDaoJson : IStudentDao
+    public class StudentDaoJson : ARepository
     {
         // Eliminar literals
 
@@ -29,7 +29,7 @@ namespace Vueling.DataAccess.Dao
         List<Student> liststudents;
         Student studentread;
 
-        public Student Add(Student student)
+        public override Student Add(Student student)
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 
@@ -180,7 +180,7 @@ namespace Vueling.DataAccess.Dao
             return studentread;
         }
 
-        public List<Student> ReadAll()
+        public override List<Student> ReadAll()
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 

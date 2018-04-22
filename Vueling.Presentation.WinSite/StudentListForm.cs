@@ -27,15 +27,14 @@ namespace Vueling.Presentation.WinSite
         IFileBL filebl;
         Config format;
 
+        #region constructor i load
         public StudentListForm()
         {
             InitializeComponent();
             AplicarIdioma();
 
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-
         }
-
 
         private void StudentListForm_Load(object sender, EventArgs e)
         {
@@ -54,13 +53,7 @@ namespace Vueling.Presentation.WinSite
                 throw;
             }
         }
-
-        private void buttonVolver_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            StudentForm studentform = new StudentForm();
-            studentform.ShowDialog();
-        }
+        #endregion
 
         #region Buttons Format
         private void buttonReadTxt_Click(object sender, EventArgs e)
@@ -68,13 +61,11 @@ namespace Vueling.Presentation.WinSite
             format = Config.txt;
             this.FillDataGrid(Config.txt);
         }
-
         private void buttonReadJson_Click(object sender, EventArgs e)
         {
             format = Config.json;
             this.FillDataGrid(Config.json);
         }
-
         private void buttonReadXml_Click(object sender, EventArgs e)
         {
             format = Config.xml;
@@ -91,6 +82,13 @@ namespace Vueling.Presentation.WinSite
             this.FillDataGrid(Config.clr);
         }
         #endregion
+
+        private void buttonVolver_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StudentForm studentform = new StudentForm();
+            studentform.ShowDialog();
+        }
 
         private void FillDataGrid(Config format)
         {
@@ -158,6 +156,7 @@ namespace Vueling.Presentation.WinSite
             string SelectedDateBirth = dGVStudents.Rows[index].Cells[4].Value.ToString();
 
             StudentForm stform = new StudentForm(SelectedId, SelectedName, SelectedSurname, SelectedAge, SelectedDateBirth);
+
             stform.MdiParent = this.MdiParent;
             stform.Show();
 

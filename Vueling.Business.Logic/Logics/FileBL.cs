@@ -11,6 +11,7 @@ using System.IO;
 using Vueling.Common.Logic.LoggerAdapter;
 using System.Collections.ObjectModel;
 using Vueling.Common.Logic.CommonResources;
+using Vueling.DataAccess.Dao;
 
 namespace Vueling.Business.Logic.Logics
 {
@@ -23,16 +24,16 @@ namespace Vueling.Business.Logic.Logics
         // Llegim   del fitxer txt, o dels singletons json i xml   una llista del fitxer (READFILE)
         // Busquem al fitxer corresponent amb una query sobre les llistes creades per ReadFile (BUSCAR)
 
-        private readonly AbstarctFactory formfact;
         private static SingletonJson sinjson;
         private static SingletonXml sinxml;
         private List<Student> liststudent;
+        private readonly StudentDao studentdao;
 
         private readonly Logger logger = new Logger();
 
         public FileBL()
         {
-            formfact = new FormatFactory();
+            studentdao = new StudentDao();
         }
 
         public List<Student> ReadFile(Config con)
@@ -43,17 +44,17 @@ namespace Vueling.Business.Logic.Logics
             switch (con)
             {
                 case Config.txt:
-                    return (formfact.CreateStudentFormat(con)).ReadAll();
+                    return studentdao.ReadAll(con);
                 case Config.json:
                     return sinjson.LoadAll();
                 case Config.xml:
                     return sinxml.LoadAll();
                 case Config.sql:
-                    return (formfact.CreateStudentFormat(con)).ReadAll();
+                    return studentdao.ReadAll(con);
                 case Config.clr:
-                    return (formfact.CreateStudentFormat(con)).ReadAll();
+                    return studentdao.ReadAll(con);
                 default:
-                    return (formfact.CreateStudentFormat(con)).ReadAll();
+                    return studentdao.ReadAll(con);
             }
         }
 

@@ -11,6 +11,6 @@ namespace Vueling.DataAccess.Dao.Factories
     public abstract class AbstarctFactory
     {
         // return el tipo de formato txt, json, xml
-        public abstract IStudentDao CreateStudentFormat(Config typ);
+        public abstract ARepository CreateStudentFormat(Config typ);
     }
 }

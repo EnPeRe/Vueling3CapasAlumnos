@@ -54,10 +54,9 @@
     <Compile Include="DAOs\StudentDaoClr.cs" />
     <Compile Include="DAOs\StudentDaoSql.cs" />
     <Compile Include="DAOs\StudentDaoXml.cs" />
-    <Compile Include="Factories\AbstarctDBFactory .cs" />
-    <Compile Include="Factories\FormatDBFactory.cs" />
     <Compile Include="Factories\FormatFactory.cs" />
     <Compile Include="Factories\AbstarctFactory.cs" />
+    <Compile Include="Interfaces\ARepository.cs" />
     <Compile Include="Interfaces\IUpdate.cs" />
     <Compile Include="Interfaces\IDelete.cs" />
     <Compile Include="Interfaces\IStudentDaoDB.cs" />
@@ -66,6 +65,7 @@
     <Compile Include="DAOs\StudentDaoTxt.cs" />
     <Compile Include="Singletons\SingletonJson.cs" />
     <Compile Include="Singletons\SingletonXml.cs" />
+    <Compile Include="StudentDao.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Vueling.Common.Logic\Vueling.Common.Logic.csproj">

@@ -15,7 +15,7 @@ using Vueling.DataAccess.Dao.Interfaces;
 
 namespace Vueling.DataAccess.Dao
 {
-    public class StudentDaoSql : IStudentDaoDB
+    public class StudentDaoSql : ARepository
     {
         private readonly Logger logger = new Logger();
 
@@ -34,7 +34,7 @@ namespace Vueling.DataAccess.Dao
             studentread = new Student();
         }
 
-        public Student Add(Student student)
+        public override Student Add(Student student)
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 
@@ -113,7 +113,7 @@ namespace Vueling.DataAccess.Dao
             return st;
         }
 
-        public List<Student> ReadAll()
+        public override List<Student> ReadAll()
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 
@@ -159,7 +159,7 @@ namespace Vueling.DataAccess.Dao
             return liststudents;
         }
 
-        public int DeleteById(int id)
+        public override int DeleteById(int id)
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 
@@ -185,7 +185,7 @@ namespace Vueling.DataAccess.Dao
             return rowsdeleted;
         }
 
-        public int UpdateById(Student student)
+        public override int UpdateById(Student student)
         {
             logger.Debug(ResourceLogger.StartMethod + System.Reflection.MethodBase.GetCurrentMethod().Name);
 

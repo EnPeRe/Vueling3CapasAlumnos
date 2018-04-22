@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Vueling.Common.Logic;
+using Vueling.Common.Logic.CommonResources;
+using Vueling.Common.Logic.LoggerAdapter;
 using Vueling.Common.Logic.Models;
 using Vueling.DataAccess.Dao.Interfaces;
 
@@ -12,13 +14,12 @@ namespace Vueling.DataAccess.Dao.Factories
     // public class FormatFactory<T> where T : VuelingModelObject     //(T seria un Student)
     public class FormatFactory : AbstarctFactory
     {
-        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+        private readonly Logger logger = new Logger();
 
-        public override IStudentDao CreateStudentFormat(Config typ)
+        public override ARepository CreateStudentFormat(Config typ)
         {
 
-            log.Info("Metodo " + System.Reflection.MethodBase.GetCurrentMethod().Name +
-                " iniciado");
+            logger.Info(new StringBuilder(ResourceLogger.StartMethod).Append(System.Reflection.MethodBase.GetCurrentMethod().Name).ToString());
 
             switch (typ)
             {
